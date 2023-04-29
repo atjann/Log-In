@@ -1,0 +1,269 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100%;
+    font-family: Roboto;
+    background-color: #000000;
+}
+header{
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.container{
+    margin-top: 4em;
+}
+.moon{
+    width: 320px;
+    height: 320px;
+    animation: zoomin 2s ease-in-out infinite alternate;
+}
+.bigmoon{
+    position: fixed;
+    top: -5%;
+    left: 40%;
+    animation: motion 2s ease-in-out infinite alternate;
+}
+.big{
+    width: 60em;
+    height: 60em;
+}
+.smallmoon{
+    position: fixed;
+    top: -35%;
+    right: 60%;
+    animation: motion2 2s ease-in-out infinite alternate;
+}
+.small{
+    width: 630px;
+    height: 630px;
+}
+
+@keyframes motion {
+    0% {
+    transform: translateY(0);
+    }
+    50% {
+    transform: translateY(-8px);
+    }
+    100% {
+    transform: translateY(0);
+    }
+}
+@keyframes motion2 {
+    0% {
+        transform: translateY(0) rotate(180deg);
+    }
+    50% {
+        transform: translateY(5px) rotate(180deg);
+    }
+    100% {
+        transform: translateY(0) rotate(180deg);
+    }
+}
+/* start button */
+.btn-slice {
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 0;
+    color: #ffe600;
+    font-family: 'Popins', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    padding: 19.2px 40px;
+    position: fixed;
+    bottom: 30%;
+    transition: all 1000ms cubic-bezier(0.890, -0.170, 0.140, 1.225);
+}
+.btn-slice .top,
+.btn-slice .bottom {
+    height: 6px;
+    overflow: hidden;
+    position: relative;
+    transition: all 300ms cubic-bezier(1.000, -0.055, 0.025, 1.040);
+    transition-timing-function: cubic-bezier(1.000, -0.055, 0.025, 1.040);
+    transition-delay: 0.35s;
+}
+.btn-slice .bottom span {
+    left: 0;
+    position: absolute;
+    top: -6px;
+}
+.btn-slice:hover .top {
+    top: -5px;
+}
+.btn-slice:hover .bottom {
+    bottom: -5px;
+}
+.btn-slice:hover,
+.btn-slice:focus,
+.btn-slice:active {
+    margin-left: 10px;
+}
+.btn-slice:before {
+    background-color: #ffffff;
+    content: '';
+    height: 1px;
+    margin-top: 6px;
+    position: absolute;
+    right: -35px;
+    transition: all 1000ms cubic-bezier(0.890, -0.170, 0.140, 1.225);
+}  
+/* log in popup with javascript */
+#login-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0b0a0a;
+    color: #fff;
+    display: none;
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    max-width: 400px;
+    width: 100%;
+    height: 60%;
+    overflow: hidden    ;
+}
+.logo-container {
+    margin-bottom: 50px;
+    display: grid;
+    place-items: center;
+}
+.logo-container img {
+    width: 100px;
+    height: auto;
+}
+form {
+    width: 100%;
+}
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+input::placeholder{
+    color:#fff;
+}
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    border-radius: 9px;
+    border: 1px solid #ffffff;
+    color: #fff;
+    background-color: transparent;
+    font-size: 16px;
+}
+#username:focus,
+#password:focus {
+    color: #212121;
+    background-color: #ebdc52;
+}
+button[type="submit"],
+button.google-login {
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    font-weight: 700;
+}
+.google-login a{
+    color: #000;
+    text-decoration: none;
+}
+button.google-login {
+    background-color: #ffffff;
+    color: #212121;
+}
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+button[type="submit"]:hover,
+.google-login a:hover {
+    color: #ffe600;
+}
+.bottom{
+    display: grid;
+    place-items: center;
+}
+.bot-text{
+    cursor: pointer;
+    color: #fff;
+    text-align: center;
+    font-weight: 300;
+    font-size: 12px;
+    padding: 10px;
+}
+.line{
+    border-bottom: 1px solid #ebdc52;
+    width: 50%;
+}
+.reaalmoon{
+    overflow: hidden;
+}
+.real-moon{
+    width: 550px;
+    height: 300px;
+    position: fixed;
+    top: 65%;
+    left: -3%;
+    z-index: -2;
+}
+/* javascript animation */
+[data-animation="fade-up"] {
+    opacity: 0;
+    transform: translateY(80px);
+    transition: opacity .5s ease-in-out,transform .8s ease-in-out;
+}
+[data-animation="fade-up"].fade-up-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* responsive */
+@media only screen and (max-width:870px) {
+    #login-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #000000;
+        color: #fff;
+        display: none;
+        padding: 60px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        max-width: 250px;
+        height: 65%;
+        overflow: hidden    ;
+    }
+    .moon{
+        width: 300px;
+        height: 300px
+    }
+    .bigmoon{
+        top: 4%;
+        left: 40%;
+    }
+}

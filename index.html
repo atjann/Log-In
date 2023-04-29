@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,500;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Log In</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img class="moon" src="img/moon.png" alt="title">
+        </div>
+        <div class="bigmoon">
+            <img class="big" src="img/bigmoon.png" alt="">
+        </div>
+        <div class="smallmoon">
+            <img src="img/bigmoon.png" alt="" class="small">
+        </div>
+        <button class="btn-slice" onclick="playAudio2()">
+            <div class="top"><span>Start Traveling</span></div>
+            <div class="bottom"><span>Start Traveling</span></div>
+          </button>          
+    </header>
+
+    <div id="login-popup" data-animation="fade-up">
+        <div class="logo-container">
+            <img src="img/title.png" alt="Your Logo">
+        </div>
+        <form>
+            <div class="input-container">
+                <input type="text" id="username" name="username" placeholder="Username">
+            </div>
+            <div class="input-container">
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="button-container">
+                <button class="google-login" type="submit"><a href="https://youtu.be/dQw4w9WgXcQ">Log in</a></button>
+                <button class="google-login"><a href="https://accounts.google.com/">Continue with Google</a></button>
+            </div>
+            <div class="bottom">
+            <p class="bot-text">Forgot Password?</p>
+            <hr class="line">
+            <p class="bot-text">Create New Account</p>
+            </div>
+            <div class="realmoon">
+                <img class="real-moon" src="img/loginmoon.png" alt="">
+            </div>
+        </form>
+        
+    </div>
+        <audio id="audio1" src="audio/laugh.mp3" autoplay></audio>
+        <audio id="audio2" src="audio/morse.mp3" autoplay></audio>
+    
+
+    <script>
+        const btnSlice = document.querySelector('.btn-slice');
+        const loginPopup = document.getElementById('login-popup');
+
+        btnSlice.addEventListener('click', function() {
+        loginPopup.style.display = 'block';
+        });
+        
+        <!-- audio -->
+        var audio1 = document.getElementById("audio1");
+        var audio2 = document.getElementById("audio2");
+        audio1.volume = 1.0; // Set volume to 50%
+        
+        setInterval(function() {
+          audio1.currentTime = 0; // Restart audio from the beginning
+          audio1.play();
+          setTimeout(function() {
+            audio1.pause();
+          }, 5000); // Stop audio after 5 seconds
+        }, 30000); // Repeat audio every 30 seconds
+        
+        function playAudio2() {
+          audio2.play();
+        }
+        audio2.pause();
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                const animationDirection = entry.target.getAttribute('data-animation');
+                entry.target.classList.add(`${animationDirection}-visible`);
+                observer.unobserve(entry.target);
+                }
+            });
+            });
+    
+            const elements = document.querySelectorAll('[data-animation]');
+    
+            elements.forEach(element => {
+            observer.observe(element);
+            });
+    </script>
+</body>
+</html>
